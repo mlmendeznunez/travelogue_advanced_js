@@ -1,6 +1,6 @@
 # Travelogue
 
-#### By Marie L. Mendez-Nunez and Diana Holland
+#### By Marie L. Mendez-Nunez
 
 ## Description
 This application allows users to create a list of places that they've visited. Users can add details like location, landmarks, time of year, notes, etc.
@@ -16,7 +16,7 @@ Jquery, JavaScript, HTML/CSS, Mocha, Bootstrap, Chai
 
 ### Legal
 
-Copyright (c) 2015 ** Marie L. Mendez-Nunez and Diana Holland **
+Copyright (c) 2015 ** Marie L. Mendez-Nunez**
 
 This software is licensed under the MIT license.
 
