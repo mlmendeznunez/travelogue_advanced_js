@@ -12,37 +12,44 @@
     map = new google.maps.Map(document.getElementById("map"), mapOptions);
   }
 
-  function codeAddress() {
-  // Get address from form
-  var address = $("input#new-location-name").val();
-  geocoder.geocode( { 'address': address}, function(results, status) {
-    if (status == google.maps.GeocoderStatus.OK) {
-      map.setCenter(results[0].geometry.location);
+  function codeAddress(city, country) {
+    // Get address from form
+    /*
+    var city = $("input#new-city").val();
+    var country = $("input#new-country").val();
+    */
+    var finaladdress = city + ", " + country;
+    var marker; 
 
-      // Add marker
-      var marker = new google.maps.Marker({
-          map: map,
-          position: results[0].geometry.location
-      });
-    } else {
-      alert("Geocode was not successful for the following reason: " + status);
-    }
-  });
-}
+    geocoder.geocode( { 'address': finaladdress }, function(results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+        map.setCenter(results[0].geometry.location);
+
+        // Add marker
+        marker = new google.maps.Marker({
+            map: map,
+            position: results[0].geometry.location
+        });
+      } else {
+        alert("Geocode was not successful for the following reason: " + status);
+      };
+    }); 
+    return marker;
+  }
 
 $(document).ready(function() {
 
-  $("form#new-spot").submit(function(event) {
-  event.preventDefault();
+ //  $("form#new-location").submit(function(event) {
+ //  event.preventDefault();
 
-  // Grab input fields
-  var inputtedNewCountry = $("input#new-country").val();
-  var inputtedNewCity = $("input#new-city").val();
+ //  // Grab input fields
+ //  var inputtedNewCountry = $("input#new-country").val();
+ //  var inputtedNewCity = $("input#new-city").val();
 
-  // Clear input fields after pinning marker on map
-  $("input#new-country").val("");
-  $("input#new-city").val("");
- });
+ //  // Clear input fields after pinning marker on map
+ //  $("input#new-country").val("");
+ //  $("input#new-city").val("");
+ // });
 
 /* Form to add additional details to a location */
   $("#add-activity").click(function() {
@@ -59,12 +66,16 @@ $(document).ready(function() {
 
     var inputtedCity = $("input#new-city").val();
     var inputtedCountry = $("input#new-country").val();
+
+    var marker = codeAddress(inputtedCity, inputtedCountry);
+
     var inputtedRating = $("input#new-rating").val();
     var inputtedStart = $("input#new-start").val();
     var inputtedEnd = $("input#new-end").val();
     var inputtedCompanions = $("input#new-companions").val();
+
     var inputtedFood = $("input#new-food").val();
-    var newLocation = { city: inputtedCity, country: inputtedCountry, rating: inputtedRating, start: inputtedStart, end: inputtedEnd, companions: inputtedCompanions, food: inputtedFood, activities: [] };
+    var newLocation = { marker: marker, city: inputtedCity, country: inputtedCountry, rating: inputtedRating, start: inputtedStart, end: inputtedEnd, companions: inputtedCompanions, food: inputtedFood, activities: [] };
 
       /* Add another activity for your location */
     $(".new-detail").each(function() {
@@ -87,6 +98,9 @@ $(document).ready(function() {
 
     /* Show information for the location that is clicked */
     $(".location").last().click(function() {
+
+      //map.setCenter(newLocation.marker.getPlace().location);
+
       $("#show-location").show();
       $(".city").text(newLocation.city);
       $(".country").text(newLocation.country);
@@ -103,8 +117,8 @@ $(document).ready(function() {
     });
 
     /* Clears the form after the location is added */
-    $("input#new-city").val("");
-    $("input#new-country").val("");
+    $("input.new-city").val("");
+    $("input.new-country").val("");
     $("input.new-rating").val("");
     $("input.new-start").val("");
     $("input.new-end").val("");

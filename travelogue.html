@@ -6,77 +6,16 @@
     <script src="https://maps.googleapis.com/maps/api/js"></script>
     <script src="js/jquery-1.11.3.js"></script>
     <script src="js/scripts.js"></script>
-    <script src="js/city.js"></script>
+    <script src="js/country.js"></script>
     <title>Travelogue</title>
   </head>
   <body onload="initialize()">
-    <h1>Map</h1>
+
     <div class="container">
       <h1>Travelogue</h1>
 
         <div class="row">
           <div class="col-md-6">
-            <h2>Add location:</h2>
-
-            <form id="new-spot">
-              <div class="form-group">
-                <label for="new-city">City</label>
-                <input type="text" class="form-control" id="new-city">
-              </div>
-
-              <div class="form-group">
-                <label for="new-country">Country</label>
-                <input type="text" class="form-control" id="new-country">
-              </div>
-
-              <button type="submit" class="btn" onclick="codeAddress()">Add</button>
-            </form>
-
-              <!--<form id="new-location"> -->
-
-            <form id="new-location">
-              <div class="form-group">
-                <label for="new-rating">Rate your trip! From 1 to 5</label>
-                <input type="number" min="1" max="5" class="form-control new-rating" id="new-rating">
-              </div>
-
-                <div class="form-group">
-                  <label for="new-start">Start</label>
-                  <input type="date" class="new-start" id="new-start">
-
-                  <label for="new-end">End</label>
-                  <input type="date" class="new-end" id="new-end">
-              </div>
-
-              <div class="form-group">
-                <label for="new-companions">Travel Buddies</label>
-                <input type="text" class="form-control new-companions" id="new-companions">
-              </div>
-
-              <div class="form-group">
-                <label for="new-food">Favorite Food</label>
-                <input type="text" class="form-control new-food" id="new-food">
-              </div>
-
-              <div id="new-details">
-                <div class="new-detail">
-                  <div class="form-group">
-                    <label for="new-activity">Activity</label>
-                    <input type="text" class="form-control new-activity">
-                  </div>
-                </div>
-              </div>
-
-              <span class="btn btn-default" id="add-activity">Another activity</span>
-              <!--<button type="submit" class="btn btn-primary">Submit</button>-->
-
-            </form>
-          </div>
-
-
-          <div class="col-md-6">
-            <div id="map"></div>
-
             <h2>Locations:</h2>
             <ul id="locations">
 
@@ -94,6 +33,70 @@
                 </ul>
             </div>
           </div>
+            
+
+        <div class="container">
+          <div class="col-md-6">
+
+            <div><h1>Your Map</h1>
+            <div id="map"></div>
+            </div>
+
+            <div>
+            <h2>Add location:</h2>
+
+              <form id="new-location">
+                <div class="form-group">
+                  <label for="new-city">City</label>
+                  <input type="text" class="form-control new-city" id="new-city">
+                </div>
+
+
+                <div class="form-group">
+                  <label for="new-country">Country</label>
+                  <input type="text" class="form-control new-country" id="new-country">
+                </div>
+
+                <!--<button type="submit" class="btn" onclick="codeAddress()">Add</button> -->
+                <div class="form-group">
+                  <label for="new-rating">Rate your trip! From 1 to 5</label>
+                  <input type="number" min="1" max="5" class="form-control new-rating" id="new-rating">
+                </div>
+
+                  <div class="form-group">
+                    <label for="new-start">Start</label>
+                    <input type="date" class="new-start" id="new-start">
+
+                    <label for="new-end">End</label>
+                    <input type="date" class="new-end" id="new-end">
+                </div>
+
+                <div class="form-group">
+                  <label for="new-companions">Travel Buddies</label>
+                  <input type="text" class="form-control new-companions" id="new-companions">
+                </div>
+
+                <div class="form-group">
+                  <label for="new-food">Favorite Food</label>
+                  <input type="text" class="form-control new-food" id="new-food">
+                </div>
+
+                <div id="new-details">
+                  <div class="new-detail">
+                    <div class="form-group">
+                      <label for="new-activity">Activity</label>
+                      <input type="text" class="form-control new-activity">
+                    </div>
+                  </div>
+                </div>
+
+                <span class="btn btn-default" id="add-activity">Another activity</span>
+                <button type="submit" class="btn btn-primary">Submit</button>
+
+              </form>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </body>
