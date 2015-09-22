@@ -1,0 +1,45 @@
+#show-location {
+  display: none;
+}
+
+#show-second-activity {
+  display: none;
+}
+
+#map {
+  width: 500px;
+  height: 400px;
+  background-color: #CCC;
+}
+
+body {
+
+  background-color: #FFFFF0;
+  margin: 0px;
+  min-height: 100%;
+  width: 100%;
+}
+
+html {
+  margin: 0px;
+  min-height: 100%;
+  width: 100%;
+}
+
+* {
+  font-family: Lydian BT;
+}
+
+h1 {
+  font-size: 50px;
+  text-shadow: 1px 1px 2px gray;
+}
+
+.location {
+  cursor: pointer;
+  color: #0088cc;
+}
+
+.location:hover {
+  text-decoration: underline;
+}
